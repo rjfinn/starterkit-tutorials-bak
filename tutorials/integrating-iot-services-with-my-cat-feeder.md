@@ -14,7 +14,8 @@ decided to hook up my cat feeder and water fountain to the cloud!
 
 Here's how I did it:
 
-[[/images/sample.jpg]]
+[[images/sample.jpg]]
+[[../images/sample.jpg]]
 
 ### Steps
 
