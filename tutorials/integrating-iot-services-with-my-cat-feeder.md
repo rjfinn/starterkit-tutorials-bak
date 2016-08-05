@@ -14,6 +14,8 @@ decided to hook up my cat feeder and water fountain to the cloud!
 
 Here's how I did it:
 
+[[/images/sample.jpg]]
+
 ### Steps
 
 1. Setup my Starter Kit's *FRDM* ship with Avnet Cellular Shield
