@@ -21,8 +21,7 @@ A simple use case to demonstrate using the built-in buttons on the Freedom K64F 
 ![alt text](../images/ButtonsFlow.jpg "Buttons Flow")
 6. If you haven't already, assemble the hardware for for your AT&T IoT Starter Kit.
  ⋅⋅*The shield goes on top with the micro USB ports all facing the same direction.  The SIM card is inserted with the metal leads facing down.
-- ⋅⋅*
-Only the power USB cable is required once the device is operational.  That requires 5V-2.4A provided by the USB plug in your kit.
+- ⋅⋅*Only the power USB cable is required once the device is operational.  That requires 5V-2.4A provided by the USB plug in your kit.
  ⋅⋅*The USB serial cable plugs into your computer for transferring the program and monitoring the serial output.
 
 ![alt text](../images/KitCables.jpg "Kit Cables")
