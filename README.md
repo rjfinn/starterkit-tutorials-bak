@@ -13,7 +13,7 @@ The source of community-submitted tutorials to [AT&T's IoT Starter Kit portal](h
 ## Intro
 
 Welcome to the repository for community-submitted AT&T Starter Kit tutorials!
-This is a collection of tutorials to get up and running quickly with [AT&T IoT Services](http://iot-services.att.com), powered by the [Starter Kit](https://starterkit.att.com).
+This is a collection of tutorials to get up and running quickly with [AT&T IoT Services](https://iotservices.att.com/), powered by the [Starter Kit](https://starterkit.att.com).
 
 ## Contributing
 
