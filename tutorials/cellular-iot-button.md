@@ -33,7 +33,11 @@ A simple use case to demonstrate using the built-in buttons on the Freedom K64F 
 
 Now you're up and running!  You can modify the flow to add functionality like calling out to other web services.
 
-If you're having trouble it may help you to connec to the serial output.  Use a terminal program to connect to the newly created serial port (typically usbmodem1412 for the Mac or COM14 for the PC) with a 115200 baud rate.
+### Troubleshooting
+
+If you're having trouble it may help you to connec to the serial output.  Use a terminal program to connect to the newly created serial port (typically something like usbmodem1412 for the Mac or COM14 for the PC) with a 115200 baud rate.
 * [PC USB serial driver](https://developer.mbed.org/handbook/Windows-serial-configuration)
 
 Make sure to check your flow endpoints for the correct server name and port.  Most people forget to change the server name.
+
+The modem module requires a lot of power.  The USB plub included with the kit provides ****5V-2.4A**** and you need at least that much.
