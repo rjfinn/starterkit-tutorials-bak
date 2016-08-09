@@ -40,4 +40,4 @@ If you're having trouble it may help you to connec to the serial output.  Use a 
 
 Make sure to check your flow endpoints for the correct server name and port.  Most people forget to change the server name.
 
-The modem module requires a lot of power.  The USB plub included with the kit provides ****5V-2.4A**** and you need at least that much.
+The modem module requires a lot of power.  The USB plub included with the kit provides ***5V-2.4A*** and you need at least that much.
