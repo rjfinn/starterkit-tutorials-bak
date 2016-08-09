@@ -23,8 +23,8 @@ A simple use case to demonstrate using the built-in buttons on the Freedom K64F 
 ![alt text](../images/KitCables.jpg "Kit Cables")
 7. Log into the [ARM mbed online IDE](https://developer.mbed.org/compiler/) (create an account if you don't have one).
 8. Select the FRDM-K64F platform and import the [ATT_Cellular_IoT_Button](https://developer.mbed.org/users/rfinn/code/ATT_Cellular_IOT_Button/) template program.
-![alt text](../images/ButtonsMbed.jpg "Kit Buttons")
 9. Alter the config_me.h file and modify MY_SERVER_NAME, MY_PORT_STR, and FLOW_BASE_URL.  By default, the program only uses the TCP version so you don't need FLOW_BASE_URL unless you change your code to use an HTTP GET.
+![alt text](../images/ButtonsMbed.jpg "Buttons m-bed")
 10. Compile the binary file.  It will create an ATT_Cellular_IoT_Button_K64F.bin file and download it to your Downloads folder.
 11. Drag and drop this over to the MBED drive which appeared when you plugged in the Starter Kit.
 12. The code will load and then automatically reboot the device, but I like to manually use the Reset button anyway.
