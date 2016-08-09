@@ -26,6 +26,7 @@ A simple use case to demonstrate using the built-in buttons on the Freedom K64F 
 9. Alter the config_me.h file and modify MY_SERVER_NAME, MY_PORT_STR, and FLOW_BASE_URL.  By default, the program only uses the TCP version so you don't need FLOW_BASE_URL unless you change your code to use an HTTP GET.
 
 ![alt text](../images/ButtonsMbed.jpg "Buttons m-bed")
+
 10. Compile the binary file.  It will create an ATT_Cellular_IoT_Button_K64F.bin file and download it to your Downloads folder.
 11. Drag and drop this over to the MBED drive which appeared when you plugged in the Starter Kit.
 12. The code will load and then automatically reboot the device, but I like to manually use the Reset button anyway.
