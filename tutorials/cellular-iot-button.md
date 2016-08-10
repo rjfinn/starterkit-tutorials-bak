@@ -20,7 +20,7 @@ A simple use case to demonstrate using the built-in buttons on the Freedom K64F 
 5. Open the Endpoints tab and you'll see something like this:
 <br/>![alt text](../images/ButtonsFlow.jpg "Buttons Flow")
 6. If you haven't already, assemble the hardware for for your AT&T IoT Starter Kit.  The shield goes on top with the micro USB ports all facing the same direction.  The SIM card is inserted with the metal leads facing down.  Only the power USB cable is required once the device is operational.  That requires 5V-2.4A provided by the USB plug in your kit.  The USB serial cable plugs into your computer for transferring the program and monitoring the serial output.
-<br/>You may need to update the firmware.  Check the DETAILS.TXT file in the MBED drive for the firmware version.  You want at least 0226.  If not, [get the latest here](https://developer.mbed.org/handbook/Firmware-FRDM-K64F).
+<br/>You may need to update the firmware.  Check the DETAILS.TXT file in the MBED drive for the firmware version.  If the drive is called BOOTLOADER or you don't even see a DETAILS.TXT then you definitely need to upgrade the firmware.  You want at least 0226.  If not, [get the latest here](https://developer.mbed.org/handbook/Firmware-FRDM-K64F).
 <br/>![alt text](../images/KitCables.jpg "Kit Cables")
 7. Log into the [ARM mbed online IDE](https://developer.mbed.org/compiler/) (create an account if you don't have one).
 8. Select the [FRDM-K64F platform](https://developer.mbed.org/platforms/FRDM-K64F/) and import the [ATT_Cellular_IoT_Button](https://developer.mbed.org/users/rfinn/code/ATT_Cellular_IOT_Button/) template program.
