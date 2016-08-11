@@ -47,7 +47,7 @@ The function middle nodes affect the payload in various ways in order to communi
 
 The output nodes correspond with whatever input method was used.  For every request, a response must be issued back to the device so it knows the request was completed and successful in sending data.
 
-**ARM mbed C code***
+**ARM mbed C code**
 <br/>The main components of this code are: 1. using interrupts to run code when the buttons are pressed and 2. send the data to Flow, both in main.cpp.  It uses the base code written by Avnet for the [Avnet_ATT_Cullular_IOT Quick Start program](https://developer.mbed.org/users/JMF/code/Avnet_ATT_Cellular_IOT/), which in turn is taking care of the AT commands sent to the modem for you.
 
 ```
@@ -82,7 +82,7 @@ if (g_sw2_flag) {
   led_blue = 1;
 }
 ```
-Now, we send our data to the TCP input in our Flow.  This is based on using HTTP, so its still expecting an JSON result.  That's fine for this example, but feel free to change it.
+Now, we send our data to the TCP input in our Flow.  This is based on using HTTP, so its still expecting an JSON result.  That's fine for this example, but feel free to change it.  You'll also notice that at this point SW2 turns into button1/btn1 and SW3 to button2/btn2.
 ```
 void send_button_data(char btn1, char btn2)
 {
