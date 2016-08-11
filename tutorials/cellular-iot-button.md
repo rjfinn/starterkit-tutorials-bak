@@ -34,6 +34,78 @@ A simple use case to demonstrate using the built-in buttons on the Freedom K64F 
 
 Now you're up and running!  You can modify the flow to add functionality like calling out to other web services.
 
+### Explanation
+
+**AT&T Flow**
+<br/>
+![alt text](../images/ButtonsFlow.jpg "Buttons Flow")
+<br/>In Flow, data *flows* left to right.  The inputs are on the far left and the outputs on the far right.  In between are various nodes used to normalize data, perform calculations, or implement business rules.  Each node passes along its output using the *msg* object and the *msg.payload* property.
+
+This flow has two inputs: a HTTP-In node, and a TCP-In node.  The HTTP-In simply expects a GET sent to {Base_URL}/buttons along with a query string containing button1 and button2.  The TCP node expects a string (text) and will treat each line as a separate string.  It passes along a payload of the query string as an object to the *Parse Input* function node, which expects name:value pairs separated by a space (i.e. "serial:starterkit001 button1:1 button2:0").
+
+The function middle nodes affect the payload in various ways in order to communicate the button states.  The *Twillio* node is configured with a particular account to send an SMS to a particular phone number.
+
+The output nodes correspond with whatever input method was used.  For every request, a response must be issued back to the device so it knows the request was completed and successful in sending data.
+
+**ARM mbed C code***
+<br/>The main components of this code are: 1. using interrupts to run code when the buttons are pressed and 2. send the data to Flow, both in main.cpp.  It uses the base code written by Avnet for the [Avnet_ATT_Cullular_IOT Quick Start program](https://developer.mbed.org/users/JMF/code/Avnet_ATT_Cellular_IOT/), which in turn is taking care of the AT commands sent to the modem for you.
+
+```
+// interrupts for buttons
+InterruptIn sw2(SW2);
+
+// SW2 event-triggered interrupt
+void sw2_isr_down()
+{
+    g_sw2_flag = 1;   // set flag in ISR
+}
+
+void sw2_isr_up()
+{
+    g_sw2_flag = 0;
+}
+```
+Then, the in the main() function, set up what happens when the button is pressed - namely, calling the event handler we defined previously:
+```
+sw2.fall(&sw2_isr_down);
+sw2.rise(&sw2_isr_up);
+
+sw2.mode(PullNone);
+```
+...and do something with that flag when its set:
+```
+if (g_sw2_flag) {
+  printf("%s\n","SW2 Button");
+  led_blue = 0;
+  send_button_data('1','0');
+} else {
+  led_blue = 1;
+}
+```
+Now, we send our data to the TCP input in our Flow.  This is based on using HTTP, so its still expecting an JSON result.  That's fine for this example, but feel free to change it.
+```
+void send_button_data(char btn1, char btn2)
+{
+    char modem_string[512];
+    GenerateModemString(&modem_string[0], btn1, btn2);
+    char myJsonResponse[512];
+    if (cell_modem_Sendreceive(&modem_string[0], &myJsonResponse[0])) {
+        if (true) {
+            //ledOnce = 1;
+            SetLedColor(0x2); //Green
+        }
+        parse_JSON(&myJsonResponse[0]);
+    }
+}
+```
+In GenerateModemString() we simply create a string from the data we want to send:
+```
+sprintf(modem_string, "serial:%s button1:%c button2:%c\r\n",
+      M2X_DEVICE_SERIAL, btn1, btn2
+);
+```
+If you're feeling adventurous you can uncomment the version of the code creating an HTTP GET and change the port in config_me.h to 80 (the standard HTTP port).
+
 ### Troubleshooting
 
 If you're having trouble it may help you to connect to the serial output.  Use a terminal program to connect to the newly created serial port (typically something like usbmodem1412 for the Mac or COM14 for the PC) with a 115200 baud rate.
