@@ -41,7 +41,7 @@ Now you're up and running!  You can modify the flow to add functionality like ca
 ![alt text](../images/ButtonsFlow.jpg "Buttons Flow")
 <br/>In Flow, data *flows* left to right.  The inputs are on the far left and the outputs on the far right.  In between are various nodes used to normalize data, perform calculations, or implement business rules.  Each node passes along its output using the *msg* object and the *msg.payload* property.
 
-This flow has two inputs: a HTTP-In node, and a TCP-In node.  The HTTP-In simply expects a GET sent to {Base_URL}/buttons along with a query string containing button1 and button2.  The TCP node expects a string (text) and will treat each line as a separate string.  It passes along a payload of the query string as an object to the *Parse Input* function node, which expects name:value pairs separated by a space (i.e. "serial:starterkit001 button1:1 button2:0").
+This flow has two inputs: a HTTP-In node or a TCP-In node.  Either can be used and lead to the same result, as you can see where the sequences merge into one.  The HTTP-In simply expects a GET sent to {Base_URL}/buttons along with a query string containing button1 and button2.  The TCP node expects a string (text) and will treat each line as a separate string.  It passes along a payload of the query string as an object to the *Parse Input* function node, which expects name:value pairs separated by a space (i.e. "serial:starterkit001 button1:1 button2:0").
 
 The function middle nodes affect the payload in various ways in order to communicate the button states.  The *Twillio* node is configured with a particular account to send an SMS to a particular phone number.
 
@@ -112,6 +112,6 @@ If you're having trouble it may help you to connect to the serial output.  Use a
 <br/>![alt text](../images/CoolTerm.jpg "CoolTerm")
 * [PC USB serial driver](https://developer.mbed.org/handbook/Windows-serial-configuration)
 
-Make sure to check your flow endpoints for the correct server name and port.  Most people forget to change the server name.  Also make sure the URL components are defined in the correct variables and not combined into one.  Also, make sure your Flow is deployed and not in *Offline* mode.
+Make sure to check your flow endpoints for the correct server name and port.  Most people forget to change the server name.  Also make sure the URL components are defined in the correct variables and not combined into one. Check that your Flow is deployed and not in *Offline* mode.
 
 The modem module requires a lot of power.  The USB plug included with the kit provides ***5V-2.4A*** and you need at least that much.  If you're seeing ```modem initialization failure``` the modem is probably not getting enough power.
